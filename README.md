@@ -20,6 +20,7 @@ Install via the built-in OpenCart Extension Installer.
 - Admin interface to configure and upload 3D models per product.
 - Dual-language support: **English** and **Greek**.
 - Lightweight and designed to be easily extended or customized.
+- Includes geometry subtraction tools for basic shape manipulation.
 
 ---
 
@@ -49,19 +50,87 @@ Install via the built-in OpenCart Extension Installer.
 
 ---
 
-## ⚠️ Disclaimer
+## 🧾 Instructions
 
-This is an **experimental module** created to test Three.js integration with OpenCart. Use in production environments is at your own discretion. Contributions, bug reports, and suggestions are welcome!
+### Test Product
+
+After installation, a test product will be added automatically:
+- **Name**: `TEST PRODUCT`
+- **SKU**: `TEST3DPRODUCT`
+
+Visit the product in the front end:
+- A **3D View** tab appears next to the description.
+- You can **rotate** the model with your mouse and **zoom in/out**.
+
+> ⚠️ If the 3D model doesn’t load:
+>
+> Move the file manually from:
+> ```
+> /image/catalog/extension/module/product3dcontrol/products/test/test_model.glb
+> ```
+> To:
+> ```
+> /image/catalog/extension/module/product3dcontrol/products/{TEST_PRODUCT_ID}/test_model.glb
+> ```
+
+---
+
+### Admin Panel Usage
+
+Go to: **Catalog → Product 3D Create**
+
+1. Search for the product you want to create a 3D model for.
+2. Click the **edit** icon.
+3. On the edit page:
+   - You'll see product info (title, description, images).
+   - Below that, the **Three.js Editor** is embedded.
+
+#### Reference Images
+
+- You can select up to **4 product images**.
+- Click **"Add To Project"** to use them in the editor as reference material.
+
+---
+
+### Saving Models
+
+When you use:
+
+File → Export GLB
+- The model is saved automatically to:/image/catalog/extension/module/product3dcontrol/products/{PRODUCT_ID}/{RANDOM_NAME}.glb
+- The filename is randomized to prevent scraping based on predictable product IDs.
+
+---
+
+### Subtracting Geometry (Custom Feature)
+
+This module supports a basic geometry subtraction operation:
+
+**Example: Make a sphere with a square hole**
+1. Add a **sphere** and a **cube**.
+2. Position the cube to intersect the sphere.
+3. Select the **target shape** (e.g., the sphere).
+4. Then select the **cutting shape** (e.g., the cube).
+5. Press `Ctrl + P` to subtract the cube from the sphere.
+
+---
+
+### Front-End Buttons
+
+Above the product name in the front end:
+- **ADMIN**: Opens the product's admin edit page.
+- **FRONT**: Returns to the product's front-end view.
 
 ---
 
 ## 📈 Roadmap / TODO
 
 - Improve UI/UX for 3D controls.
-- Add support for multiple 3D model formats.
+- Add support for more model formats.
 - Implement more robust error handling.
 - Improve mobile responsiveness.
-
+- Add a way to load any previously made or saved 3D model to the editor.
+- Save old versions of 3D models and select which one the user sees, or allow multiple 3D models for products with multiple parts.
 ---
 
 ## 📄 License
@@ -78,5 +147,4 @@ Feel free to fork, submit pull requests, or open issues.
 
 ## 📧 Contact
 
-If you have questions or ideas, open an issue or reach out via GitHub!
-
+For questions or suggestions, open an issue here on GitHub.
