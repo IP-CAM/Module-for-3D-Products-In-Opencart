@@ -1,4 +1,4 @@
-# Product 3D Control for OpenCart
+# Product 3D Control for OpenCart v.3.0.3.3
 
 This module integrates **Three.js** with OpenCart to add 3D model support on product pages. It provides both **admin-side configuration** and **front-end rendering**, allowing store owners to associate 3D models with products for an interactive viewing experience.
 
